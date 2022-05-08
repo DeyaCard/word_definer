@@ -77,7 +77,7 @@ describe '#Word' do
       Definition.clear()
         word = Word.new("snake", nil)
         word.save()
-        definition = Definition.new("cold-blooded anaimal", word id, nil)
+        definition = Definition.new("cold-blooded animal", word.id, nil)
         definition.save()
         definition2 = Definition.new("reptile", word.id, nil)
         definition2.save()

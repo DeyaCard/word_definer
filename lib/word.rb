@@ -1,5 +1,5 @@
 class Word
-  attn_reader :id, :name
+  attr_reader :id, :name
 
   @@words = {}
   @@total_rows = 0
@@ -12,4 +12,4 @@ class Word
   def self.all
     @@words.values()
   end
-  
+end

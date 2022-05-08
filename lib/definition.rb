@@ -1,6 +1,6 @@
 class Definition 
-  attn_reader :id
-  attn_accessot :name, :word_id
+  attr_reader :id
+  attr_accessor :name, :word_id
 
   @@definitions = {}
   @@total_rows = 0
@@ -10,4 +10,4 @@ class Definition
     @word_id = word_id
     @id = id || @@total_rows +- 1
   end
-  
+end

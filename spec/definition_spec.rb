@@ -1,6 +1,6 @@
 require 'rspec'
-require 'word'
 require 'definition'
+require 'word'
 require 'pry'
 
 describe '#Definition' do
@@ -13,7 +13,7 @@ describe '#Definition' do
   end
 
   describe('#==') do
-    is("is the same definition if it has the attributes as another definition") do
+    it("is the same definition if it has the attributes as another definition") do
       definition = Definition.new("cold-blooded animal", @word.id, nil)
       definition2 = Definition.new("cold-blooded animal", @word.id, nil)
       expect(definition).to eq(definition2)
@@ -41,7 +41,7 @@ describe '#Definition' do
     end
   end
 
-  describe('#save')
+  describe('#save') do
     it("saves a definition") do
       definition = Definition.new("cold-bloodedc animal", @word.id, nil)
       definition.save()
@@ -49,15 +49,51 @@ describe '#Definition' do
     end
   end
 
-  describe('.') do
-    it("returns a list of all definitions") do
+  describe('.find') do
+    it("find a definition by id") do
       definition = Definition.new("cold-blooded animal", @word.id, nil)
       definition.save()
       definition2 = Definition.new("reptile", @word.id, nil)
       definition2.save()
-      expect(Definition.all).to eq([definition, definition2])
+      expect(Definition.find(definition.id)).to eq(definition)
     end
   end
+
+  describe('#update') do
+    it("updates a definition bu id") do
+      definition = Definition.new("cold-blooded animal", @word.id, nil)
+      definition.save()
+      definition.update("cold-blooded animal with fangs", @word.id)
+      expect(definition.name).to eq("cold-blooded animal with fangs")
+    end
+  end
+
+  describe('#delete') do
+    it("deletes a definition by id") do
+      definition = Definition.new("cold-blooded animal", @word.id, nil)
+      definition.save()
+      definition2 = Definition.new("reptile", @word.id, nil)
+      definition2.save()
+      definition.delete
+      expect(Definition.all).to eq([definition2])
+    end
+  end
+
+  describe('.find_by_word') do
+    it("finds definitions for a word") do
+      word2 = Word.new("cat", nil)
+      word2.save()
+      definition = Definition.new("cold-blooded animal", @word.id, nil)
+      definition.save()
+      definition2 = Definition.new("feline", @word2.id, nil)
+      definition2.save()
+      expect(Definition.find_by_word(word2.id)).to eq([definition2])
+    end
+  end
+
+end
+
+
 
 
 
