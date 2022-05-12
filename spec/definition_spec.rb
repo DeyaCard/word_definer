@@ -91,6 +91,10 @@ describe '#Definition' do
     end
   end
 
+  describe('#word') do
+    it("finds the word a definition belomngs to") do
+      definition = Definition.new
+
 end
 
 
