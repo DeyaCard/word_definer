@@ -1,6 +1,6 @@
 # Word Definer
 
-A Ruby testing environment to calculate a word scrabble score.
+An application geared towards children to create their own dictionary. 
 
 ## By Deya Card
 
@@ -26,7 +26,7 @@ https://github.com/DeyaCard/word_definer
 
 
 ### Known Bugs:
-* No known issues at time of publishing. (WIP)
+*  (WIP)
 
 
 ### License: 
